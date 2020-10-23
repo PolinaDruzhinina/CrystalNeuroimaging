@@ -19,6 +19,15 @@ To train the 3D CNN models use
 
 [CometMl:](https://www.comet.ml/polina/mri-interpretation/view/uw5eiUdqrH5ArXAKBHGA1FKIr)
 
+Train and validate loss
+
+![TrainLoss](image/train_loss VS step.jpeg) ![ValLoss](image/validate_loss VS step.jpeg)
+
+Train and validate accuracy
+
+![TrainAcc](image/train_acc VS step.jpeg) ![ValAcc](image/validate_acc VS step.jpeg)
+
+
 ## GradCAM
 
 Interpretation with Grad CAM:

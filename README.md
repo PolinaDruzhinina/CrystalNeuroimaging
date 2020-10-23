@@ -21,7 +21,7 @@ To train the 3D CNN models use
 
 Train and validate loss
 
-![TrainLoss](image/train_lossVSstep.jpeg =250x250) ![ValLoss](image/validate_lossVSstep.jpeg =250x250)
+![TrainLoss](image/train_lossVSstep.jpeg | width=100) ![ValLoss](image/validate_lossVSstep.jpeg =250x250)
 
 Train and validate accuracy
 

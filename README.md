@@ -21,17 +21,23 @@ To train the 3D CNN models use
 
 Interpretation with Grad CAM:
   - Mean over Female
+  
 ![](image/mean0.png)
+
   - Mean over Male
+  
 ![](image/mean1.png)
 
 ## Guided backpropagation
 
 Interpretation with Guided backpropogation:
   - Mean over Female
+  
 ![](image/gbmean0.png)
+
   - Mean over Male
-![](image/gbmean1.png)=
+  
+![](image/gbmean1.png)
 
 ## Model Randomization Test 
 ### GradCam

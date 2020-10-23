@@ -62,4 +62,4 @@ Interpretation with Guided backpropogation:
 ## Date Randomization Test 
 
 
-![](image/DateRandomTest.png)
+![](image/DataRandomTest.png)

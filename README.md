@@ -57,7 +57,7 @@ Interpretation with Guided backpropogation:
 
 ### Guided backpropagation
 
-![](image/ModelRandTestGB.png)
+![](image/ModelRandGB.png)
 
 ## Date Randomization Test 
 

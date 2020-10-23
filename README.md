@@ -21,11 +21,11 @@ To train the 3D CNN models use
 
 Train and validate loss
 
-![TrainLoss](image/train_loss VS step.jpeg) ![ValLoss](image/validate_loss VS step.jpeg)
+![TrainLoss](image/train_lossVSstep.jpeg) ![ValLoss](image/validate_lossVSstep.jpeg)
 
 Train and validate accuracy
 
-![TrainAcc](image/train_acc VS step.jpeg) ![ValAcc](image/validate_acc VS step.jpeg)
+![TrainAcc](image/train_accVSstep.jpeg) ![ValAcc](image/validate_accVSstep.jpeg)
 
 
 ## GradCAM
@@ -62,4 +62,4 @@ Interpretation with Guided backpropogation:
 ## Date Randomization Test 
 
 
-![](image/DateRandTest.png)
+![](image/DateRandomTest.png)

@@ -52,3 +52,14 @@ Interpretation with Guided backpropogation:
 
 ## Model Randomization Test 
 ### GradCam
+
+![](image/ModelRandTestGradCam.png)
+
+### Guided backpropagation
+
+
+
+## Date Randomization Test 
+
+
+![](image/DateRandTest.png)

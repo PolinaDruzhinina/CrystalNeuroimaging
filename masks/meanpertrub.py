@@ -56,17 +56,25 @@ class MeanPertrub():
     
     def get_masks(self, X, pred, model):
         res = []
-        N, C, D, H, W = X.shape
+        N = len(X)
         rw_max = self.max_iter // 5
-        for i, img in tqdm(enumerate(X), total=X.shape[0]):
+        i = 0
+        for img,_ in tqdm(X, total=len(X)):
+#             print(i)
+            img = img.squeeze(axis=0)
+            C, D, H, W = img.shape
             model_ans = pred[i]
             mask = torch.ones((1, C, D // self.mask_scale, H // self.mask_scale, W // self.mask_scale), requires_grad=True, device=self.device)
             optimizer = Adam([mask], lr=self.lr, betas=(0.9, 0.99), amsgrad=True)
             scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.1)
             best_loss, best_mask = float('inf'), None
             for epoch in range(self.max_iter):
+#                 print(mask)
                 mask_up = upsample(mask, img_size=(D, H, W))
+#                 print('hi')
+#                 print(mask_up)
                 mask_up = self.filter_gaus(mask_up, self.blur_mask)
+#                 print(mask_up)
                 total_pred_loss = 0
                 for _ in range(self.rep):
                     img_jit = jittering(img, self.jit, C, D, H, W)
@@ -76,14 +84,25 @@ class MeanPertrub():
                     img_jit = img_jit[:, j0:(D + j0), j1:(H + j1), j2:(W + j2)] 
                     img_torch = np_to_torch(img_jit, self.device, img_size=(1, C, D, H, W), requires_grad=False)
                     blur = self.filter_gaus(img_torch, self.blur_img)
-                    perturbated_input = img_torch.mul(mask_up) + blur.mul(1 - mask_up)
-                    outputs = model(perturbated_input.float())
+#                     print(mask_up)
+#                     print(img_torch)
+#                     print(blur)
+                    perturbated_input = img_torch.mul(mask_up) + blur.mul(1 - mask_up).to(self.device)
+#                     print(perturbated_input.float().shape)
+                    
+#                     print(perturbated_input.float())
+                    outputs = model(perturbated_input.float()) #problem
+#                     print(outputs)
                     prob = torch.exp(outputs)
+#                     print(prob)
                     total_pred_loss += F.relu(prob[0, model_ans] - 0.05)
+                    del outputs, prob, perturbated_input, blur, img_torch , img_jit
+#                 print(total_pred_loss)
                 reg_loss = self.l1_coef * torch.mean(torch.abs(1 - mask)) + self.tv_coef * tv_norm(mask_up, self.tv_beta)
+#                 print(reg_loss)
                 rw = 1 if epoch > rw_max else epoch / rw_max
                 loss = total_pred_loss / self.rep + rw * reg_loss
-                
+                print(epoch)
                 if epoch > 50 and loss.item() <= best_loss:
                     best_loss = loss.item()
                     best_mask = mask.clone().detach()
@@ -92,9 +111,13 @@ class MeanPertrub():
                 loss.backward()
                 optimizer.step()
                 scheduler.step()
+#                 print(mask)
                 mask.data.clamp_(0, 1)
+#             print(type(best_mask))
+
             res_mask = upsample((1 - best_mask), img_size=(D, H, W))
             res.append(res_mask.cpu().numpy())
+            i +=1
         X_mask = np.concatenate(res, axis=0)
         X_mask =  X_mask.squeeze(axis=1)
         return X_mask

@@ -85,14 +85,14 @@ class AttentionMap():
             self.model.zero_grad()
         return np.concatenate(attention, axis=0)
     
-def get_masks(model, loader, device, mask_type='grad_cam'):
+def get_masks(model, loader, device, mask_type='grad_cam', size = (180,180,180)):
     masks = []
     gp = GuidedBackprop(model)
     for image, gt in tqdm(loader, total=len(loader)):
         image = image.to(device)
         logit = model(image)
         if mask_type == 'grad_cam':
-            logit[:,1].backward()
+            logit[:,logit.data.max(1)[1].item()].backward()
             activation = model.get_activations(image).detach()
             act_grad  = model.get_activations_gradient()
             pool_act_grad = torch.mean(act_grad, dim=[2,3,4], keepdim=True)
@@ -100,16 +100,14 @@ def get_masks(model, loader, device, mask_type='grad_cam'):
             heatmap = torch.sum(activation, dim=1)
             heatmap = F.relu(heatmap)
             heatmap /= torch.max(heatmap)
-            heatmap = F.interpolate(heatmap.unsqueeze(0),(180,180,180), mode='trilinear', align_corners=False)
+            heatmap = F.interpolate(heatmap.unsqueeze(0),size, mode='trilinear', align_corners=False) #58 70 58
             masks.append(heatmap.cpu().numpy())
-        
         elif mask_type == 'guided_backprop':
             pred = logit.data.max(1)[1].item()
             img_grad = gp.guided_backprop(image, pred)
             masks.append(img_grad)
         else:
             raise NotImplementedType('define mask_type')
-            
     return np.concatenate(masks,axis=0).squeeze(axis=1)
         
 

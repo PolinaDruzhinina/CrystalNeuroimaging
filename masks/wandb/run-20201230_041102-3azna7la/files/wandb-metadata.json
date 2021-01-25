@@ -1,0 +1,26 @@
+{
+    "os": "Linux-4.4.0-128-generic-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.6.9",
+    "heartbeatAt": "2020-12-30T04:11:05.059858",
+    "startedAt": "2020-12-30T04:11:02.924203",
+    "docker": null,
+    "gpu": "Tesla P100-PCIE-16GB",
+    "gpu_count": 4,
+    "cpu_count": 56,
+    "cuda": "10.1.243",
+    "args": [
+        "-f",
+        "/home/.local/share/jupyter/runtime/kernel-5bc3d672-a414-4006-b8ba-8712a4f26d87.json"
+    ],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/PolinaDruzhinina/CrystalNeuroimaging.git",
+        "commit": "db33a1f1d9b66bd408e303e763465827a8c72cfa"
+    },
+    "email": "marinapoms@gmail.com",
+    "root": "/home/Druzhinina/project",
+    "host": "2204534abf9c",
+    "username": "mri",
+    "executable": "/usr/bin/python3"
+}

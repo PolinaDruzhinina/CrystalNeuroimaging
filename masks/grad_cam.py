@@ -85,14 +85,15 @@ class AttentionMap():
             self.model.zero_grad()
         return np.concatenate(attention, axis=0)
     
-def get_masks(model, loader, device, mask_type='grad_cam', size = (180,180,180)):
+def get_masks(model, loader, device, mask_type='grad_cam', size = (180,180,180), save_binary = None):
     masks = []
-    gp = GuidedBackprop(model)
-    for image, gt in tqdm(loader, total=len(loader)):
-        image = image.to(device)
+    for i, image in enumerate(loader):
+        image = image[None, :, :, :, :].to(device)
+#         print(image.shape)
         logit = model(image)
         if mask_type == 'grad_cam':
             logit[:,logit.data.max(1)[1].item()].backward()
+#             logit[:,0].backward()
             activation = model.get_activations(image).detach()
             act_grad  = model.get_activations_gradient()
             pool_act_grad = torch.mean(act_grad, dim=[2,3,4], keepdim=True)
@@ -102,12 +103,18 @@ def get_masks(model, loader, device, mask_type='grad_cam', size = (180,180,180))
             heatmap /= torch.max(heatmap)
             heatmap = F.interpolate(heatmap.unsqueeze(0),size, mode='trilinear', align_corners=False) #58 70 58
             masks.append(heatmap.cpu().numpy())
+            if save_binary:
+                name = loader.dataset.fold_paths[i][-34:-28] #671855_3T_T1w_MPR1_bet_mask_crop.nii.gz
+                binary = heatmap.cpu().numpy()[heatmap.cpu().numpy() <= 0.35]=0
+                nib.save(nib.Nifti1Image(binary, affine = np.eye(4)), os.path.join(save_binary,'{}_3T_T1w_MPR1_bet_binary_gradcam_mask.nii.gz'.format(name)))              
         elif mask_type == 'guided_backprop':
+            gp = GuidedBackprop(model)
             pred = logit.data.max(1)[1].item()
             img_grad = gp.guided_backprop(image, pred)
             masks.append(img_grad)
         else:
             raise NotImplementedType('define mask_type')
+    del image, heatmap, activation, act_grad, pool_act_grad
     return np.concatenate(masks,axis=0).squeeze(axis=1)
         
 

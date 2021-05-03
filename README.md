@@ -10,13 +10,6 @@ Using HCP T1-weighted MRI data we tried classification of 3DCNN for task of gend
  
  ## CNN Model
 
-To train the 3D CNN models use 
-
-```bash
-3DCNN.ipynb
-```
-
-![](image/3DCNN.png)
 
 [CometMl:](https://www.comet.ml/polina/mri-interpretation/view/uw5eiUdqrH5ArXAKBHGA1FKIr)
 

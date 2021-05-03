@@ -5,36 +5,21 @@ from comet_ml import Experiment
 experiment = Experiment(api_key="0EKSrlH9OVngYfgQCrauwqLEt",
                         project_name="mri-interpretation", workspace="polina")
 import argparse
-import pickle
-import time
 
 import numpy as np
 import os
 import sys
-import functools
-import matplotlib.pyplot as plt
-import pandas as pd
-import pathlib
 from datetime import datetime
 import torch
 import torch.nn
-import torch.utils.data as data_utils
-import torch.optim as optim
-import torch.utils.data as torch_data
-import torch.nn.functional as F
 # from torchsummary import summary
-from sklearn.model_selection import train_test_split, StratifiedKFold
+from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import roc_auc_score, precision_score, recall_score
-import torchio
-from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torchvision.transforms import *
-import random
-import nilearn
-from nilearn import plotting
 %matplotlib inline
 
 from model import MriNetGrad
-from data import HCP_MRI, MriData
+from data.data import MriData
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--path_to_X', help='path_to_X', type=str, default= '/data/adni/tensors_cut.npz')

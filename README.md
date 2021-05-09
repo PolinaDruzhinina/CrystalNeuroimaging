@@ -1,25 +1,30 @@
 
 # CrystalNeuroimaging
 ## Interpretation of 3D CNNs for Brain MRI Data Classification
-Using HCP T1-weighted MRI data we tried classification of 3DCNN for task of gender patterns recognition. And then we applied different methods of interpretation to research and  undestand of gender-related brain differencies. 
+In this repository we provide *Jupyter Notebooks* to make classification of 3DCNN for task of gender patterns recognition using HCP T1-weighted MRI data. We also provide different methods of interpretation to research and undestand of gender-related brain differencies and some swap tests to check them. 
 
 ## DATASET
  Dataset - Human Connection Project (HCP).
  We worked on the full-sized T1 MPI images preprocessed in `Freesurfer` according to the HCP pipeline.
  Data contain 517 subjects, including 210 men and 307 women.
  
- ## CNN Model
+## Install
 
+Here is the list of some libraries to execute the code:
 
-[CometMl:](https://www.comet.ml/polina/mri-interpretation/view/uw5eiUdqrH5ArXAKBHGA1FKIr)
+ - python = 3.6
+ - pytorch = 0.4
+ - nilearn
+ - numpy
+ - scipy 
+ - matplotlib
+ - scikit-image
+ - jupyter
 
-Train and validate loss
-
-![TrainLoss](image/train_lossVSstep.jpeg) ![ValLoss](image/validate_lossVSstep.jpeg)
-
-Train and validate accuracy
-
-![TrainAcc](image/train_accVSstep.jpeg) ![ValAcc](image/validate_accVSstep.jpeg)
+You can install them via `conda` (`anaconda`), e.g.
+```python
+conda install jupyter
+```
 
 
 ## GradCAM
@@ -44,16 +49,3 @@ Interpretation with Guided backpropogation:
   
 ![](image/gbmean1.png)
 
-## Model Randomization Test 
-### GradCam
-
-![](image/ModelRandTestGradCam.png)
-
-### Guided backpropagation
-
-![](image/ModelRandGB.png)
-
-## Date Randomization Test 
-
-
-![](image/DataRandomTest.png)

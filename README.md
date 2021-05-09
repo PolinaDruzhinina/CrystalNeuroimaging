@@ -25,7 +25,11 @@ You can install them via `conda` (`anaconda`), e.g.
 ```python
 conda install jupyter
 ```
+or create an conda env
 
+```python
+conda env create -f environment.yml
+```
 
 ## GradCAM
 

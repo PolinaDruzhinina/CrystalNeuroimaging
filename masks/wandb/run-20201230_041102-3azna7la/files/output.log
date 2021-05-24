@@ -1,0 +1,99 @@
+HCP absmax before normalization: 435.0126647949219
+Dataset size: 1112
+Labels distribution: (array([0, 1]), array([605, 507]))
+
+Example:
+Image shape: torch.Size([1, 206, 250, 220])
+Type: <class 'torch.Tensor'>
+Target: 1
+HCP absmax before normalization: 435.0126647949219
+Dataset size: 1112
+Labels distribution: (array([0, 1]), array([605, 507]))
+
+Example:
+Image shape: torch.Size([1, 206, 250, 220])
+Type: <class 'torch.Tensor'>
+Target: 1
+HCP absmax before normalization: 435.0126647949219
+Dataset size: 1112
+Labels distribution: (array([0, 1]), array([605, 507]))
+
+Example:
+Image shape: torch.Size([1, 206, 250, 220])
+Type: <class 'torch.Tensor'>
+Target: 1
+Populating the interactive namespace from numpy and matplotlib
+/usr/local/lib/python3.6/dist-packages/IPython/core/magics/pylab.py:160: UserWarning: pylab import has clobbered these variables: ['random', 'plotting', 'Normalize', 'axes']
+`%matplotlib` prevents importing * from pylab and numpy
+  "\n`%matplotlib` prevents importing * from pylab and numpy"
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
+Populating the interactive namespace from numpy and matplotlib
